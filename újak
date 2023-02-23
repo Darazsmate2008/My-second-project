@@ -1,6 +1,16 @@
+A második befogó megadása:
 a = int(input("Befogó: "))
 c = int(input("Átfogó: "))
 b = (c ** 2 - a ** 2) ** (1 / 2)
+k = a + b + c
+t = a * b / 2
+print(f"A háromszög kerülete: {k}")
+print(f"A háromszög területe: {t}")
+
+Átfogó megadása:
+a = int(input("Befogó 1: "))
+b = int(input("Befogó 2: "))
+c = (a ** 2 + b ** 2) ** (1 / 2)
 k = a + b + c
 t = a * b / 2
 print(f"A háromszög kerülete: {k}")
