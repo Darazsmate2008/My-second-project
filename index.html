@@ -466,3 +466,38 @@ else:
     print("Tiszta víz")
 l = ["megérett a meggy", "csipkebokor-vessző", "te leszel a párom", "Bíz' oda nem mégy!", "Leszállott a köd", "Hasad a pad", "Dörög az ég", "Leszakadta polc", "Kis Ferenc", "Tiszta víz"]
 print(l[int(input("Írj be egy számot 1 és 10 között! :")) - 1])
+t = list(map(lambda x: list(map(int, x.split("-"))),open("input.txt").read().split("\n")))
+
+print("2. feladat")
+t1=t[0]
+print(f'Az 1. sorban szereplő számok összege: {sum(t1)}')
+
+print("3. feladat")
+t3 = list(map(lambda x: x**2,sorted(t[1])[-8:]))
+print(f'A 2. sorban szereplő páros számok szorzatának nagyságrendje : {sum(t3)}')
+
+print("4. feladat")
+from functools import reduce
+t4 = reduce(lambda x, y: x * y, filter(lambda x: x % 3, t[2]), 1)
+print(f'3. sorban szereplő 10 legnagyobb szám maximuma: 10^{len(str(t4))}')
+
+from math import sqrt as gy
+print("5. feladat")
+t50 = sorted(list(filter(lambda x: gy(x) == int(gy(x)),t[4])))
+t51 = ", ".join(map(str, t50))
+t52 = ", ".join(map(str,map(int, map(gy, t50))))
+t5x = reduce(lambda x, y: x + gy(y), filter(lambda x: gy(x) == int(gy(x)), t[4]), 0)
+print(f'A 4. sorban szereplő11-nél nagyobb számok négyzeteinek összege: {t5x:0.0f}')
+
+# ...
+
+print("7. feladat")
+print(f'Az összes számra a páratlan számok minimumát: {max(sorted(sum(t, []))[:12])}')
+
+'''input.txt:
+92!43!84!7!33!78!55!94!14!59!90!82!34!92!72!43!97!17!22!17!57!73!25!69!77!42!35!83!99!68!46!29!16!47!76!15!21!19!33!24!77!93!91!30!63!98!75!30!4
+85!74!64!67!63!22!73!25!28!75!64!74!83!11!88!9!51!1!60!20!19!91!47!34!91!66!99!78!59!86!68!91!31!83!78!65!4!64!36!2!78!87!42!64!84!74!51!28!7
+2!1!48!27!3!45!68!6!61!11!54!57!11!76!89!36!75!88!41!41!22!35!4!13!61!64!17!33!89!79!40!5!95!74!24!57!44!28!51!84!61!78!15!6!72!75!92!82!56
+5!66!44!6!14!37!32!19!51!76!10!77!8!54!82!3!55!13!96!72!62!58!79!5!94!36!27!45!87!33!4!43!54!84!62!7!60!39!25!1!52!49!43!4!6!91!16!58!72
+91!80!89!13!21!18!41!5!88!91!17!23!56!60!79!76!63!86!98!25!68!90!56!51!9!56!85!15!34!64!47!44!22!5!74!47!19!54!99!2!83!82!40!82!57!53!35!31!77
+'''
